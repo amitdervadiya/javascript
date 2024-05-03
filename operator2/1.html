@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            height: inherit;
+            background-color: red;
+            width: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        input {
+            height: 30px;
+            width: 100px;
+        }
+
+        button {
+            height: 30px;
+            width: 100px;
+            background-color: green;
+            color: white;
+        }
+
+        .si {
+            height: 500px;
+            width: 300px;
+            background-color: green;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <section class="main">
+            <form action="">
+                <h1>percentage</h1>
+                <label for="">subject 1</label>
+                <input type="text" id="one">
+                <br>
+                <label for="">subject 2</label>
+
+                <input type="text" id="two">
+                <br>
+                <label for="">subject 3</label>
+                <input type="text" id="three">
+                <br>
+                <label for="">subject 4</label>
+                <input type="text" id="four">
+                <br>
+                <label for="">subject 5</label>
+
+                <input type="text" id="five">
+                <br>
+                <button id="ans" onclick="percentage(answer)">percentage</button>
+            </form>
+
+            
+        </section>
+    </center>
+</body>
+
+</html>
+<script>
+    let a, b, c, d, e, answer
+    function percentage() {
+        a = document.getElementById("one").value
+        b = document.getElementById("two").value
+        c = document.getElementById("three").value
+        d = document.getElementById("four").value
+        e = document.getElementById("five").value
+        answer = (+a + +b + +c + +d + +e) * 100 / 500
+        document.getElementById("ans").innerHTML = answer
+    }
+
+</script>
