@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    label {
+        color: chocolate;
+        font-size: 25px;
+    }
+
+    input {
+        height: 30px;
+        width: 150px;
+    }
+
+    form {
+        height: 500px;
+        width: 800px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<body>
+    <center>
+        <form action="">
+            <h1>speed calculation</h1>
+            <label for="">distance travelled (in meters) </label>
+            <input type="text" name="" id="one">
+            <br>
+            <label for="">time taken (in seconds)</label>
+            <input type="text" name="" id="two">
+            <h1 id="ans">answer is here</h1>
+    
+
+        </form>
+    </center>
+</body>
+
+</html>
+<script>
+   
+        let a = document.getElementById("one").value
+        let b = document.getElementById("two").value
+        let speed = +a / +b
+        document.getElementById("ans").innerHTML = speed
+   
+
+
+</script>
