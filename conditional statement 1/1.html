@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            height: 30px;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h2>**Temperature Check**</h2>
+        <input type="text" name="" id="data">
+        <h2 id="ans"></h2>
+        
+        <h2>**Grading System**</h2>
+
+        <input type="text" name="" id="data1">
+        <h2 id="ans1"></h2>
+        <br>
+        <h2>**Number Comparison**</h2>
+       
+        <input type="text" name="" id="data2">
+        <br>
+        <br>
+        <input type="text" name="" id="data3">
+        <h2 id="ans2"></h2>
+        <h2>**Positive, Negative, or Zero**</h2>
+        <input type="text" name="" id="data4">
+        <h2 id="ans3"></h2>
+
+    </center>
+</body>
+
+</html>
+<script>
+    let a = document.getElementById("data").value
+
+    if (a === "") {
+        document.getElementById("ans").innerHTML = "enter temparature  in Celsius"
+    }
+    else {
+        if (a <= 0) {
+            document.getElementById('ans').innerHTML = "It's freezing cold!"
+            console.log("It's freezing cold!")
+        }
+        else if (a > 0 && a <= 10) {
+            document.getElementById('ans').innerHTML = "It's chilly."
+            console.log("It's chilly.")
+        }
+        else if (a > 10 && a <= 20) {
+
+            document.getElementById('ans').innerHTML = "It's cool."
+            console.log("It's cool.")
+        }
+        else {
+            document.getElementById('ans').innerHTML = "It's warm!"
+            console.log("It's warm!")
+        }
+    }
+
+    var b = document.getElementById("data1").value
+    if (b === "") {
+        document.getElementById('ans1').innerHTML = "enter marks"
+    }
+    else {
+        if (b >= 90 && b <= 100) {
+            document.getElementById('ans1').innerHTML = "A"
+        }
+        else if (b >= 80 && b <= 89) {
+            document.getElementById('ans1').innerHTML = "B"
+        }
+        else if (b > 70 && b <= 79) {
+            document.getElementById('ans1').innerHTML = "C"
+        }
+        else if (b > 60 && b <= 69) {
+            document.getElementById('ans1').innerHTML = "D"
+        }
+        else {
+            document.getElementById('ans1').innerHTML = "F"
+        }
+
+    }
+    var one = document.getElementById("data2").value
+    var two = document.getElementById("data3").value
+
+    if (one === "" && two === "") {
+        document.getElementById('ans2').innerHTML = "Enter the number"
+    }
+    else {
+        if (one < two) {
+            document.getElementById('ans2').innerHTML = "Second is Greater then First."
+        }
+        else if (one > two) {
+            document.getElementById('ans2').innerHTML = "First is Greater then Second."
+        }
+        else {
+            document.getElementById('ans2').innerHTML = "Both number are equal"
+        }
+    }
+    var c = document.getElementById("data4").value
+    if(c === ""){
+        document.getElementById('ans3').innerHTML = "Enter the number"
+    }
+    else{
+        if(c < 0){
+            document.getElementById('ans3').innerHTML = "Nagetive"
+        }
+        else if(c > 0){
+            document.getElementById('ans3').innerHTML = "Positive"
+        }
+        else{
+            document.getElementById('ans3').innerHTML = "Zero"
+        }
+
+    }
+      
+
+
+
+
+</script>
