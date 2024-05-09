@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            height: 30px;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        
+        <h1>calculates the smallest among four numbers entered by the user.
+        </h1>
+        <input type="text" name="" id="input2">
+        <input type="text" name="" id="input3">
+        <input type="text" name="" id="input4">
+        <input type="text" name="" id="input5">
+        <br>
+        <br>
+    <button onclick="smallest()" id="ans2">answer</button>
+    </center>
+</body>
+</html>
+<script>
+     function smallest() {
+        var a = document.getElementById("input2").value
+        var b = document.getElementById("input3").value
+        var c = document.getElementById("input4").value
+        var d = document.getElementById("input5").value
+        if(a < b && a < c && a < d){
+            document.getElementById('ans2').innerHTML = a
+        }
+        else if(b < c && b < d){
+            document.getElementById('ans2').innerHTML = b
+        }
+        else if(c < d){
+            document.getElementById('ans2').innerHTML = c
+        }
+        else{
+            document.getElementById('ans2').innerHTML = d
+        }
+    }
+</script>

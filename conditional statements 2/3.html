@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            height: 30px;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+
+        <h1>calculates the largest among five numbers entered by the user.
+
+        </h1>
+        <input type="text" name="" id="input6">
+        <input type="text" name="" id="input7">
+        <input type="text" name="" id="input8">
+        <input type="text" name="" id="input9">
+        <input type="text" name="" id="input10">
+        <br>
+        <br>
+        <button onclick="largest()" id="ans3">answer</button>
+    </center>
+</body>
+
+</html>
+<script>
+    function largest() {
+        var a = document.getElementById("input6").value
+        var b = document.getElementById("input7").value
+        var c = document.getElementById("input8").value
+        var d = document.getElementById("input9").value
+        var e = document.getElementById("input10").value
+        if(a > b && a > c && a > d && a > e){
+            document.getElementById('ans3').innerHTML = a
+        }
+        else if(b > c && b > d && b > e){
+            document.getElementById('ans3').innerHTML = b
+        }
+        else if(c > d && c > e){
+            document.getElementById('ans3').innerHTML = c
+        }
+        else if(d > e){
+            document.getElementById('ans3').innerHTML = d
+        }
+        else{
+            document.getElementById('ans3').innerHTML = e
+        }
+    }
+</script>

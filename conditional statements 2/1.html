@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            height: 30px;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        
+        <h1>electricity bill based on units consumed</h1>
+        <input type="text" name="" id="input1">
+        <br>
+        <br>
+    <button onclick="electricity()" id="ans1">answer</button>
+    </center>
+</body>
+</html>
+<script>
+     function electricity() {
+        var a = document.getElementById("input1").value
+        if(a <= 100){
+            document.getElementById('ans1').innerHTML = a + "$"
+        }
+        else if(a > 100 && a <= 200){
+            var b = 100+((a-100)*2)
+            document.getElementById('ans1').innerHTML = b + "$"
+        }
+        else{
+            var b = 300+((a-200)*3)
+            document.getElementById('ans1').innerHTML = b + "$"
+        }
+    }
+</script>

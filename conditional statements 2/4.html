@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        
+        <h1>     **Tax Calculator:**</h1>
+        <input type="text" name="" id="data">
+        <br>
+        <br>
+    <button onclick="tax()" id="ans1">answer</button>
+    </center>
+</body>
+</html>
+<script>
+     function tax() {
+        var a = document.getElementById("data").value
+        if(a > 0 && a <=10000){
+            var ans = (a*5)/100
+            document.getElementById('ans1').innerHTML = ans
+        }
+        else if(a > 10000 && a <=20000){
+            var ans = (a*10)/100
+            document.getElementById('ans1').innerHTML = ans
+        }
+        else if(a > 20000 && a <=30000){
+            var ans = (a*15)/100
+            document.getElementById('ans1').innerHTML = ans
+        }
+        else if(a > 30000 && a <=40000){
+            var ans = (a*20)/100
+            document.getElementById('ans1').innerHTML = ans
+        }
+        else{
+            var ans = (a*25)/100
+            document.getElementById('ans1').innerHTML = ans
+        }
+    }
+</script>
