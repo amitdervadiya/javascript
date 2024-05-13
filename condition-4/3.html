@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+           input {
+            height: 30px;
+            width: 150px;
+        }
+
+        button {
+            height: 30px;
+            width: 150px;
+            color: white;
+            background-color: green;
+        }   
+        table{
+            border: 1px solid black;
+            height: 300px;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <center>
+        <h1 class="my-5">* Generate Bill. *</h1>
+        <input type="text" id="input2" class="form-control mb-4" placeholder="Item Name">
+        <br>
+<br>
+        <input type="text" id="input3" class="form-control mb-4" placeholder="Item Price">
+        <br>
+        <br>
+        <input type="text" id="input4" class="form-control mb-4" placeholder="GST">
+        <br><br>
+
+        <button id="ans" onclick="bill()">
+        get bill
+        </button>
+<br><br>
+        
+    </center>
+</body>
+
+</html>
+<script>
+
+    function bill() {
+
+        var a = document.getElementById("input2").value
+        var b = document.getElementById("input3").value
+        var c = document.getElementById("input4").value
+      
+ans = ((+b * +c)/100) + +b
+ document.getElementById("ans").innerHTML = ans
+
+
+    }
+</script>

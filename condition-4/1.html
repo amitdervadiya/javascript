@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            height: 30px;
+            width: 150px;
+        }
+
+        button {
+            height: 30px;
+            width: 150px;
+            color: white;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h2>**Grading System**</h2>
+
+        <input type="text" name="" id="data1">
+        <br><br>
+        <button id="ans1" onclick="marks()">grade</button>
+        <br>
+
+    </center>
+</body>
+
+</html>
+<script>
+    function marks() {
+        var b = document.getElementById("data1").value
+        if (b === "") {
+            document.getElementById('ans1').innerHTML = "enter marks"
+        }
+        else {
+            if (b >= 90 && b <= 100) {
+                document.getElementById('ans1').innerHTML = "A"
+            }
+            else if (b >= 80 && b <= 89) {
+                document.getElementById('ans1').innerHTML = "B"
+            }
+            else if (b > 70 && b <= 79) {
+                document.getElementById('ans1').innerHTML = "C"
+            }
+            else if (b >= 60 && b <= 69) {
+                document.getElementById('ans1').innerHTML = "D"
+            }
+            else {
+                document.getElementById('ans1').innerHTML = "F"
+            }
+        }
+    }
+
+
+</script>

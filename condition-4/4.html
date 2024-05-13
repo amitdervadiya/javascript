@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          input {
+            height: 30px;
+            width: 150px;
+        }
+
+        button {
+            height: 30px;
+            width: 150px;
+            color: white;
+            background-color: green;
+        }  
+      
+        .hidden{
+            display: none;
+        }
+        .block{
+            display: block;
+        }
+        .changepass{
+            display: none;
+        } 
+    </style>
+</head>
+<body>
+    <div class="login">
+
+  
+    <h1 class="">Login</h1>
+        <input type="text" id="username" placeholder="Enter Your Username.">
+        <input type="text" id="password"  placeholder="Enter Your Password.">
+        <button onclick="login()" class="">Login</button>
+    </div>
+        <div class="changepass">
+
+       
+        <h1 class="my-5">* Change Password *</h1>
+        <input type="text" id="input8" class="" placeholder="Enter Your Password">
+        <br>
+        <br>
+        <input type="text" id="input9" class="" placeholder="Enter New Password">
+        <br>
+        <br>
+
+        <input type="text" id="input10" class="" placeholder="Enter Conform Password">
+        <br>
+        <br>
+        <button class="btn " onclick="change()">
+            Change
+        </button>
+    </div>
+</body>
+</html>
+<script>
+      var username = "amit", password = "1234"
+    function login() {
+        var enter_username = document.getElementById("username").value
+        var enter_password = document.getElementById("password").value
+        if (enter_username === username) {
+            if (enter_password === password) {
+              alert("you logged in succesfully")
+              document.querySelector(".login").classList.add("hidden")
+              document.querySelector(".changepass").classList.remove("changepass")
+
+
+            } else {
+                alert("Wrong Password")
+            }
+        } else {
+            alert("Wrong Username")
+        }
+    }
+    function change() {
+        var a = document.getElementById("input8").value
+        var b = document.getElementById("input9").value
+        var c = document.getElementById("input10").value
+        if (a === password) {
+            if (b === c) {
+
+                alert("Password Changed")
+          
+                
+                password = b
+           
+                document.getElementById("input8").value = ""
+                document.getElementById("input9").value = ""
+                document.getElementById("input10").value = ""
+             
+                document.querySelector(".login").classList.remove("hidden") 
+                document.querySelector(".changepass").classList.add("hidden")
+            }
+            else {
+                alert("Conform Passwords don't match")
+            }
+        } else {
+            alert("Wrong Password")
+        }
+    }
+
+</script>
