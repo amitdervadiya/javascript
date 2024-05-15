@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            height: 30px;
+            width: 150px;
+
+        }
+
+        button {
+            height: 30px;
+            width: 150px;
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1> Day of the Week</h1>
+
+        <input type="text" name="" id="day">
+        <br><br>
+        <button id="ans" onclick="day()">ans</button>
+    </center>
+</body>
+
+</html>
+<script>
+    function day() {
+        var option = document.getElementById("day").value
+        switch (option) {
+            case "sunday": console.log("A day of rest before it all begins again.")
+                break
+            case "monday": console.log("It's the start of the workweek.")
+                break
+            case "tuesday": console.log("At least it's not Monday.")
+                break
+            case "wednesday": console.log("Hump day! The week is halfway over.")
+                break
+            case "thursday": console.log("Almost there, just one more day to go.")
+                break
+            case "friday": console.log("It's almost the weekend!")
+                break
+            case "saturday": console.log("Relax, it's the weekend!")
+                break
+                default : console.log("wrong day.")
+        }
+    }
+</script>

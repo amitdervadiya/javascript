@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            height: 30px;
+            width: 150px;
+
+        }
+
+        button {
+            height: 30px;
+            width: 150px;
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1> language user</h1>
+
+        <input type="text" name="" id="language" placeholder="enter language">
+        <br><br>
+        <button id="ans" onclick="check()">ans</button>
+     
+    </center>
+</body>
+
+</html>
+<script>
+    function check() {
+            var language = document.getElementById("language").value;
+            var greetingMessage = document.getElementById("greetingMessage");
+
+            switch (language) {
+                case "English":
+                 console.log( "Hello! Language: English") 
+                    break;
+                case "Spanish":
+                console.log("¡Hola! Language: Spanish")
+                    break;
+                case "French":
+                   console.log("Bonjour! Language: French")
+                    break;
+                default:
+                  console.log("Language not supported.")
+            }
+        }
+</script>   

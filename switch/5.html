@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            height: 30px;
+            width: 150px;
+
+        }
+
+        select {
+            height: 30px;
+            width: 150px;
+        }
+
+        button {
+            height: 30px;
+            width: 150px;
+            background-color: green;
+            color: white;
+        }
+
+        ul li {
+            font-size: 20px;
+            line-height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Make Starbucks menu.</h1>
+
+        <select name="" id="menu">
+            <option value="default">choose</option>
+            <option value="hotCoffees">hotCoffees</option>
+            <option value="coldCoffees">coldCoffees</option>
+            <option value="frappuccino">frappuccino</option>
+            <option value="hotTeas">hotTeas</option>
+            <option value="bakery">bakery</option>
+        </select>
+        <!-- <input type="text" name="" id="menu">   -->
+        <br><br>
+        <button onclick="menu()">menu</button>
+        <h1 id="none"></h1>
+        <ul id="list" type="none">
+            <li id="list1"></li>
+            <li id="list2"></li>
+            <li id="list3"></li>
+            <li id="list4"></li>
+            <li id="list5"></li>
+
+        </ul>
+    </center>
+</body>
+
+</html>
+<script>
+
+
+    function menu() {
+        var menu = document.getElementById("menu").value
+
+        switch (menu) {
+            case "hotCoffees": document.getElementById("list1").innerHTML = "Caffè Americano"
+                document.getElementById("list2").innerHTML = "Caffè Latte"
+                document.getElementById("list3").innerHTML = "Cappuccino"
+                document.getElementById("list4").innerHTML = "Espresso"
+                document.getElementById("list5").innerHTML = "Flat White"
+                break
+            case "coldCoffees":
+                document.getElementById("list1").innerHTML = "Iced Coffee"
+                document.getElementById("list2").innerHTML = "Cold Brew"
+                document.getElementById("list3").innerHTML = "Iced Americano"
+                document.getElementById("list4").innerHTML = "Iced Latte"
+                document.getElementById("list5").innerHTML = "Iced Cappuccino"
+                break
+            case "hotTeas":
+                document.getElementById("list1").innerHTML = "Chai Tea"
+                document.getElementById("list2").innerHTML = "Green Tea"
+                document.getElementById("list3").innerHTML = "Black Tea"
+                document.getElementById("list4").innerHTML = "Herbal Tea"
+                document.getElementById("list5").innerHTML = "Matcha Tea"
+                break
+            case "frappuccino":
+                document.getElementById("list1").innerHTML = "Coffee Frappuccino®"
+                document.getElementById("list2").innerHTML = "Mocha Frappuccino®"
+                document.getElementById("list3").innerHTML = "Caramel Frappuccino®"
+                document.getElementById("list4").innerHTML = "Java Chip Frappuccino®"
+                document.getElementById("list5").innerHTML = "Strawberry Frappuccino®"
+                break
+            case "bakery":
+                document.getElementById("list1").innerHTML = "Croissant"
+                document.getElementById("list2").innerHTML = "Bagel"
+                document.getElementById("list3").innerHTML = "Muffin"
+                document.getElementById("list4").innerHTML = "Cookie"
+                document.getElementById("list5").innerHTML = "Brownie"
+
+                break
+            default: document.getElementById("none").innerHTML = "choose category"
+        }
+
+    }
+
+</script>
