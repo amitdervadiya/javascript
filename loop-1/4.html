@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            height: 30px;
+            width: 150px;
+
+        }
+
+        button {
+            height: 30px;
+            width: 150px;
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>**  Find odd number.**</h1>
+    <input type="text" name="" id="odd">
+    <button onclick="odd()">Check</button>
+    <h1 id="ans"></h1>
+</body>
+
+</html>
+<script>
+    function odd() {
+        const str = document.getElementById("odd").value;
+        var odd = ""
+        for (var i = 0; i <= +str; i++) {
+            if (i % 2 != 0) {
+                odd += i +","
+            }
+        }
+        alert(odd)
+    }
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         input {
+            height: 30px;
+            width: 150px;
+
+        }
+
+        button {
+            height: 30px;
+            width: 150px;
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <button onclick="hello()">hello </button>
+        <h2 id="ans"></h2>
+    </center>
+</body>
+</html>
+<script>
+    function hello(){
+        for(let i =0; i<=10 ; i++){
+            document.getElementById("ans").innerHTML += "hello world" 
+            + "<br>"
+        }
+    }
+</script>
