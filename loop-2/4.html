@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>power</title>
+    <style>
+input{
+    height: 30px;
+    width: 150px;
+
+}
+button{
+    height: 30px;
+    width: 150px;
+    background-color: green;
+            color: white    
+}
+    </style>
+</head>
+<body>
+ <button id="ans"></button>
+</body>
+</html>
+<script>
+    let a = prompt("enter value of base")
+    let i = 1, expo = prompt("enter expo")
+    res = 1
+    do {
+        res *= a
+        i++
+    } while (i <= expo);
+ 
+    document.getElementById("ans").innerHTML += (res)
+</script>
