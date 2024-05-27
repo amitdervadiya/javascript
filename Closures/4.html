@@ -63,10 +63,9 @@
     </div>
     <script>
         const isPalindrome = createPalindromeChecker();
-
         function createPalindromeChecker() {
             return function (str) {
-                
+
                 const normalizedStr = str.replace(/[^A-Za-z0-9]/g, '').toLowerCase();
                 const reversedStr = normalizedStr.split('').reverse().join('');
                 return normalizedStr === reversedStr;
