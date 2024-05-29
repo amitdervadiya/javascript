@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    let arr = [1, 2, 3, 4, 5]
+
+    let double = arr.map((el) => {
+        return el * 2
+    })
+    console.log(double)
+
+    let arr2 = [18, 20, 30, 14, 15]
+
+    let age = arr2.filter((el) => {
+        return 18 < el
+    })
+    console.log(age)
+
+    let arr3 = ["apple", "grapes", "blueberies"]
+
+    console.log(arr3.indexOf("apple"))
+
+    let arr4 = ["green", "red", "yellow"]
+    console.log(arr4.includes("green"))
+
+    var array = [80, 70, 100, 150, 70]
+    function check(score) {
+        return score >= 60
+    }
+    ans = array.every(check)
+
+    console.log(ans)
+
+    var array = [50, 70, 100, 150, 10]
+    function check(Fahrenheit) {
+        return Fahrenheit >= 100
+    }
+    ans1 = array.some(check)
+    console.log(ans1)
+
+    var each = [7,8,10,12,9]
+    plus = each.map((el)=>{
+        return el + 1
+    })
+   console.log(plus)
+    var even = [7, 8, 10, 35, 9, 19]
+    ans2 = even.filter((el) => {
+        return el % 2 == 0
+    })
+    console.log(ans2)
+    //filter
+    var array1 = [7, 8, 10, 35, 9, 19]
+    ans3 = array1.filter((el) => {
+        return el % 2 != 0
+    })
+    console.log(ans3)
+</script>
