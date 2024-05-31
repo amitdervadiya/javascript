@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    arr = [1, 2, 3, 4, 5]
+
+    arr.forEach((element) => {
+        console.log(element * 3)
+    });
+
+    arr = [1, 2, 3, 4, 5]
+
+    let ans = arr.reduce((element, sum) => {
+        return element += sum
+    }, 0);
+
+    console.log(ans)
+    let ans1 = arr.filter((element) => {
+        return element
+    }).reduce((element, sum) => {
+        return sum *= element
+    }, 1)
+
+
+    console.log(ans1)
+
+    let ans2 = arr.filter((element) => {
+        return element % 2 == 0
+    }).reduce((element, sum) => {
+        return sum += element
+    }, 0)
+
+
+    console.log(ans2)
+
+
+    let str = ["rahil", "rutvik", "krish", "sneha"]
+    let ans3 = str.filter((el) => {
+        return el.length > 4
+    }).map((el) => {
+        return "hello" + " " + el
+    })
+
+    console.log(ans3)
+    var str1 = ["rahil", "rutvik", "krish", "sneha"]
+    let ans4 = str1.includes("rahil")
+    console.log(ans4)
+
+    let ans5 = arr.filter((element) => {
+        return element % 2 == 0
+    }).map((element) => {
+        return element * element
+    })
+
+    console.log(ans5)
+
+
+    let ans6 = str.filter((el) => {
+        return el.length > 4
+    }).map((el)=>{
+        return el.toUpperCase()
+    })
+ 
+    console.log(ans6)
+</script>
