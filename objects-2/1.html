@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    let students = [
+        { name: "rahil", roll_no: 60, marks: 85 },
+        { name: "sanjay", roll_no: 80, marks: 75 },
+        { name: "krish", roll_no: 40, marks: 60 },
+        { name: "sweta", roll_no: 70, marks: 95 },
+        { name: "dhruv", roll_no: 20, marks: 65 },
+        { name: "nimesh", roll_no: 30, marks: 79 },
+    ]
+    let ans = students.map((el) => {
+        return el.name.toUpperCase()
+    })
+    console.log(ans)
+
+    var roll = students.filter((el) => {
+        return el.marks > 60 && el.roll_no > 15
+    })
+    console.log(roll)
+
+    var sum = students.reduce((acc, curr) => {
+        return acc + curr.marks
+    }, 0)
+    console.log(sum)
+
+    var add = students.map((el) => {
+        return el.marks + 20
+    })
+    console.log(add)
+
+    var Categorize_Quotes = [
+        { text: "Democracy and Education", author: "John Dewey", category: "Education" },
+        { text: "The Home and the School", author: "JWB Douglas", category: "Education" },
+        { text: "A House for Mr. Biswas", author: "V.S. Naipaul", category: "story" },
+        { text: "Truck", author: "Donald Crews", category: "cartoon" },
+        { text: "Deschooling Society", author: "Ivan Illich", category: "Education" },
+    ];
+    var edu = Categorize_Quotes.filter((el) => {
+        return el.category === "Education"
+    }).map((el) => {
+        return el.text + " ," + el.author
+    })
+    console.log(edu)
+</script>
