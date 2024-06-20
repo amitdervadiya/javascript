@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            height: 30px;
+            width: 120px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="h1">hi</h1>
+    <button onclick="red()">red</button>
+    <h3 class="h1">hello</h3>
+    <button onclick="green()">green</button>
+    <h5 class="h1">namste</h5>
+    <button onclick="blue()">blue</button>
+ <br>
+    <button onclick="all_green()">all_green</button>
+    <br>
+    <button onclick="all_green1()">all green remove</button>
+    <br>
+    <button onclick="all_blue()">all_blue</button>
+    <br>
+    <button onclick="all_blue1()">all blue remove</button>
+    <br>
+    <button onclick="all_red()">all_red</button>
+    <br>
+    <button onclick="all_red1()">all red remove</button>
+</body>
+</html>
+
+<script>
+    function red(){
+        document.querySelector("h1").style.color ="red"
+    }
+    function green(){
+        document.querySelector("h3").style.color ="green"
+    }
+    function blue(){
+        document.querySelector("h5").style.color ="blue"
+    }
+    function all_green() {
+        let green = document.querySelectorAll(".h1")
+        for (let i = 0; i < green.length; i++) {
+            green[i].style.color = "green"
+        }
+    }
+    function all_green1() {
+        let green = document.querySelectorAll(".h1")
+        for (let i = 0; i < green.length; i++) {
+            green[i].style.color = ""
+        }
+    }
+    function all_blue() {
+        let green = document.querySelectorAll(".h1")
+        for (let i = 0; i < green.length; i++) {
+            green[i].style.color = "blue"
+        }
+    }
+    function all_blue1() {
+        let green = document.querySelectorAll(".h1")
+        for (let i = 0; i < green.length; i++) {
+            green[i].style.color = ""
+        }
+    }
+    function all_red() {
+        let green = document.querySelectorAll(".h1")
+        for (let i = 0; i < green.length; i++) {
+            green[i].style.color = "red"
+        }
+    }
+    function all_red1() {
+        let green = document.querySelectorAll(".h1")
+        for (let i = 0; i < green.length; i++) {
+            green[i].style.color = ""
+        }
+    }
+
+</script>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Enter First Number</h3>
+    <input type="text" id="one">
+    <br><br>
+    <h3>Enter Second Number</h3>
+    <input type="text" id="two">
+    <h1 id="ans"></h1>
+    <br><br>
+    <button onclick="multiply()">Multiply</button>
+    <button onclick="sum()">Add</button>
+    <button onclick="subtract()">Subtract</button>
+    <button onclick="divide()">Divide</button>
+</body>
+
+</html>
+<script>
+    function sum() {
+        let first = document.querySelector("#one").value
+        let second = document.querySelector("#two").value
+
+        let ans = +first + + second
+
+        //  document.querySelector("#ans").textContent = "answer is " + ans
+
+        alert(ans)
+    }
+    function multiply() {
+        let first = document.querySelector("#one").value
+        let second = document.querySelector("#two").value
+
+        let ans = +first * + second
+
+        // document.querySelector("#ans").textContent = "answer is " + ans
+        alert(ans)
+    }
+    function subtract() {
+        let first = document.querySelector("#one").value
+        let second = document.querySelector("#two").value
+
+        let ans = +first - + second
+
+        // document.querySelector("#ans").textContent = "answer is " + ans
+        alert(ans)
+    }
+    function divide() {
+        let first = document.querySelector("#one").value
+        let second = document.querySelector("#two").value
+
+        let ans = +first / + second
+
+        // document.querySelector("#ans").textContent = "answer is " + ans
+        alert(ans)
+    }
+</script>
