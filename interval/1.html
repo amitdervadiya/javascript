@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Ga+Maamli&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+        h1 {
+            background-color: black;
+            color: white;
+        }
+
+        .counters {
+            height: 200px;
+            width: 100%;
+            background-color: #02395a;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .counter {
+            height: 100%;
+            width: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .counter i {
+            font-size: 20px;
+        }
+
+        .counter h2 {
+            margin-top: 10px;
+        }
+
+        .counter p {
+            color: rgb(201, 201, 201);
+            margin-top: 5px;
+        }
+
+        img {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div class="birth-day">
+            <h2>10</h2>
+            <img src="https://i.pinimg.com/originals/0d/01/cc/0d01cc9cebe2e8de8b60d8fbf6ee47bc.gif" alt="">
+        </div>
+    </center>
+    <br><br><br>
+    <div class="counters">
+        <div class="counter">
+            <div class="icon">
+                <i class="fa-regular fa-user"></i>
+                <h2>
+                    <font class="font1">37500</font> <span>+</span>
+                </h2>
+                <p>Students Trained</p>
+            </div>
+        </div>
+        <div class="counter">
+            <div class="icon">
+                <i class="fa-regular fa-building"></i>
+                <h2>
+                    <font class="font2">12</font> <span>+</span>
+                </h2>
+                <p>Branches</p>
+            </div>
+        </div>
+        <div class="counter">
+            <div class="icon">
+                <i class="fa-solid fa-certificate"></i>
+                <h2>
+                    <font class="font3">8</font> <span>+</span>
+                </h2>
+                <p>Certification</p>
+            </div>
+        </div>
+        <div class="counter">
+            <div class="icon">
+                <i class="fa-regular fa-user"></i>
+                <h2>
+                    <font class="font4">50</font> <span>+</span>
+                </h2>
+                <p>Approved Course</p>
+            </div>
+        </div>
+        <div class="counter">
+            <div class="icon">
+                <i class="fa-regular fa-user"></i>
+                <h2>
+                    <font class="font5">1500</font> <span>+</span>
+                </h2>
+                <p>Companies Tie-Ups</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    var count = 10
+    var counter = setInterval(function () {
+        count = count - 1
+        document.querySelector("h2").innerHTML = count
+
+        if (count === 0) {
+            clearInterval(counter)
+            document.querySelector("img").style.display = "block"
+            document.querySelector("h2").style.display = "none"
+        }
+    }, 1000)
+    var count1 = 0
+    var counter = setInterval(function () {
+        count1 = count1 + 1
+        document.querySelector(".font1").innerHTML = count1
+
+        if (count1 === 37500) {
+            clearInterval(counter)
+            document.querySelector(".font1").innerHTML = count1
+        }
+    }, 10)
+    var count2 = 0
+    var counter2 = setInterval(function () {
+        count2++
+        document.querySelector(".font2").innerHTML = count2
+
+        if (count2 === 12) {
+            clearInterval(counter2)
+            document.querySelector(".font2").innerHTML = count2
+        }
+    }, 1000)
+    var count3 = 0
+    var counter3 = setInterval(function () {
+        count3++
+        document.querySelector(".font3").innerHTML = count3
+
+        if (count3 === 8) {
+            clearInterval(counter3)
+            document.querySelector(".font3").innerHTML = count3
+        }
+    }, 1000)
+    var count4 = 0
+    var counter4 = setInterval(function () {
+        count4++
+        document.querySelector(".font4").innerHTML = count4
+
+        if (count4 === 50) {
+            clearInterval(counter4)
+            document.querySelector(".font4").innerHTML = count4
+        }
+    }, 100)
+    var count5 = 0
+    var counter5 = setInterval(function () {
+        count5++
+        document.querySelector(".font5").innerHTML = count5
+
+        if (count5 === 1500) {
+            clearInterval(counter5)
+            document.querySelector(".font5").innerHTML = count5
+        }
+    }, 10)
+</script>
