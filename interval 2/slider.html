@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            height: 300px;
+            width: 800px;
+
+
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div class="container">
+            <img src="https://cdn.pixabay.com/photo/2024/07/05/03/55/bird-8873766_960_720.jpg" alt="">
+            <img src="https://cdn.pixabay.com/photo/2024/07/05/05/19/marina-8873906_960_720.jpg" alt=""
+                style="display: none;">
+            <img src="https://cdn.pixabay.com/photo/2024/07/05/05/19/marina-8873905_960_720.jpg" alt=""
+                style="display: none;">
+        </div>
+    </center>
+</body>
+
+</html>
+<script>
+    let slider = document.querySelectorAll('img');
+    let index = 0
+    function slides(index) {
+        for (let i = 0; i < slider.length; i++) {
+            slider[i].style.display = 'none'
+        }
+        slider[index].style.display = 'block'
+    }
+    function show() {
+        setInterval(() => {
+            slides(index)
+            index++
+            if (index == slider.length) {
+                index = 0
+
+            }
+        }, 1000)
+    }
+    show()
+</script>
