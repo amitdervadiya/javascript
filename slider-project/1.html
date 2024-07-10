@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            height: 400px;
+            width: 300px;
+
+
+        }
+
+        .img {
+            background-image: url(https://i.pinimg.com/originals/47/03/1a/47031a84b5b3a212ed8110ef7971f9c8.gif);
+            height: 95vh;
+            width: 100%;
+            display: none;
+            background-size: cover;
+            background-position: center;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div class="container">
+            <img src="https://i.pinimg.com/236x/9f/a7/f5/9fa7f5911bc9269dab50cb04c8c25b7d.jpg" alt="">
+            <img src="https://i.pinimg.com/236x/66/82/84/66828448576eeb633bdeeece2ce4a104.jpg" alt=""
+                style="display: none;">
+            <img src="https://i.pinimg.com/236x/01/65/c1/0165c153db3e6625b79652f9003d86fb.jpg" alt=""
+                style="display: none;">
+            <img src="https://i.pinimg.com/236x/e0/6b/10/e06b10df8523f16bf1521fbeb334d4bc.jpg" alt=""
+                style="display: none;">
+            <img src="https://i.pinimg.com/236x/fc/06/1c/fc061cd03899cea72fdc3466f37adbe6.jpg" alt=""
+                style="display: none;">
+            <img src="https://i.pinimg.com/236x/7b/a5/17/7ba5174b993a32d0bd7c9996c9516fdc.jpg" alt=""
+                style="display: none;">
+            <img src="https://i.pinimg.com/236x/a2/cf/87/a2cf87030a6a8e230793e3e70f8acaf7.jpg" alt=""
+                style="display: none;">
+            <img src="https://i.pinimg.com/236x/e1/23/fe/e123fee9ce552fadf2efb9d263956e58.jpg" alt=""
+                style="display: none;">
+            <img src="https://i.pinimg.com/236x/c0/ca/3a/c0ca3a7a80701c3ae375562681203de7.jpg" alt=""
+                style="display: none;">
+            <img src="https://i.pinimg.com/236x/b2/59/a2/b259a272e56961564f0802a58c7264c0.jpg" alt=""
+                style="display: none;">
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRYKlmQM69vUMzTsOyvQcP1ftRRHYbeG0C4g&s"
+                alt="" style="display: none;">
+        </div>
+    </center>
+    <div class="img">
+
+    </div>
+</body>
+
+</html>
+<script>
+    let slider = document.querySelectorAll('img');
+    let index = 0
+    function slides(index) {
+        for (let i = 0; i < slider.length; i++) {
+            slider[i].style.display = 'none'
+        }
+        slider[index].style.display = 'block'
+    }
+    function show() {
+        setInterval(() => {
+            slides(index)
+            index++
+            if (index == slider.length) {
+                document.querySelector(".container").style.display = "none";
+                document.querySelector(".img").style.display = "block";
+                document.querySelector(".img").style.background = "url(" + slider[i] + ")";
+
+            }
+        }, 1000)
+    }
+    show()
+</script>
