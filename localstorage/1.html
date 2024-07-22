@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="get"></h1>
+    <button id="delete">delete</button>
+</body>
+
+</html>
+<script>
+    let user = {
+        name: "amit",
+    }
+
+    localStorage.setItem("users",JSON.stringify(user))
+
+    let person = JSON.parse(localStorage.getItem("users"))
+    document.getElementById("get").innerHTML = person.name
+
+    document.getElementById("delete").addEventListener('click',function(){
+                localStorage.removeItem("users")
+    })
+</script>
