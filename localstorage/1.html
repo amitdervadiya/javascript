@@ -17,13 +17,12 @@
     let user = {
         name: "amit",
     }
-
-    localStorage.setItem("users",JSON.stringify(user))
+    localStorage.setItem("users", JSON.stringify(user))
 
     let person = JSON.parse(localStorage.getItem("users"))
     document.getElementById("get").innerHTML = person.name
 
-    document.getElementById("delete").addEventListener('click',function(){
-                localStorage.removeItem("users")
+    document.getElementById("delete").addEventListener('click', function () {
+        localStorage.removeItem("users")
     })
 </script>
