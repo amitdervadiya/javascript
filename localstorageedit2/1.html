@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #show {
+            height: 1200px;
+            width: 100%;
+            display: grid;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="show"></div>
+</body>
+
+</html>
+
+
+<script>
+    
+
+        fetch('https://fakestoreapi.com/products')
+        
+        .then((res) => {
+            return res.json();
+        }).then((data) => {
+            item(data);
+            localStorage.setItem("products", JSON.stringify(data)); 
+        }).catch((err) => {
+            console.log(err);
+        })
+    function item(products) {
+        products.forEach((product, index) => {
+            let div = document.createElement('div');
+            let img = document.createElement('img');
+            let price = document.createElement('h1');
+            let input = document.createElement("input");
+            let btn = document.createElement("button");
+            btn.innerText = "Edit Price";
+            btn.addEventListener("click", function () {
+                input.value = product.price;
+            });
+
+            let btn2 = document.createElement("button");
+            btn2.innerText = "Update";
+            btn2.addEventListener("click", function () {
+
+                products[index].price = input.value;
+
+                localStorage.setItem("products", JSON.stringify(products));
+                input.value = "";
+
+            });
+
+            price.innerText = product.price;
+            price.style.color = "black";
+            img.style.height = "300px";
+            img.style.width = "300px";
+            img.src = product.image;
+            div.append(img, price, input, btn, btn2);
+            document.getElementById("show").appendChild(div);
+        });
+    }
+</script>
