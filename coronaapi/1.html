@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 State Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f7f7f7;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 200px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+
+        th,
+        td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 12px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        td {
+            font-size: 14px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="state" placeholder="Enter state code (e.g., MH)">
+    <button id="search">Search</button>
+    <div class="table-container">
+        <table id="state-data">
+            <thead>
+                <tr>
+                    <th>Delta</th>
+                    <th>Delta7</th>
+                    <th>Delta21_14</th>
+                    <th>Meta</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="delta"></td>
+                    <td id="delta7"></td>
+                    <td id="delta21_14"></td>
+                    <td id="meta"></td>
+                    <td id="total"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
+<script>
+    fetch("https://data.covid19india.org/v4/min/data.min.json")
+        .then((res) => res.json())
+        .then((data) => {
+            localStorage.setItem("covid", JSON.stringify(data));
+            document.getElementById("search").addEventListener("click", function () {
+                const stateCode = document.getElementById("state").value.toUpperCase();
+                const stateData = data[stateCode];
+                if (stateData) {
+                    document.getElementById("delta").innerText = JSON.stringify(stateData.delta, null, 2);
+                    document.getElementById("delta7").innerText = JSON.stringify(stateData.delta7, null, 2);
+                    document.getElementById("delta21_14").innerText = JSON.stringify(stateData.delta21_14, null, 2);
+                    document.getElementById("meta").innerText = JSON.stringify(stateData.meta, null, 2);
+                    document.getElementById("total").innerText = JSON.stringify(stateData.total, null, 2);
+                } else {
+                    clearTable();
+                    alert("State not found");
+                }
+            });
+        })
+        .catch((err) => console.log(err));
+
+    function clearTable() {
+        document.getElementById("delta").innerText = "";
+        document.getElementById("delta7").innerText = "";
+        document.getElementById("delta21_14").innerText = "";
+        document.getElementById("meta").innerText = "";
+        document.getElementById("total").innerText = "";
+    }
+</script>
