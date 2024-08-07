@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Finder</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+        }
+
+        input {
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: calc(100% - 24px);
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            background-color: #ff6f61;
+            color: #fff;
+            cursor: pointer;
+            margin: 10px 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #e55b4f;
+        }
+
+        .recipie-data {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .recipie-data img {
+            height: 250px;
+            width: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .recipie-data h1,
+        .recipie-data h2 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .recipie-data input {
+            display: none;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .edit-buttons {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .edit-buttons button {
+            background-color: #28a745;
+        }
+
+        .edit-buttons button#cancel {
+            background-color: #dc3545;
+        }
+
+        .edit-buttons button#cancel:hover {
+            background-color: #c82333;
+        }
+
+        .edit-buttons button#save {
+            background-color: #007bff;
+        }
+
+        .edit-buttons button#save:hover {
+            background-color: #0069d9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input type="text" id="name" placeholder="Enter recipe name">
+        <button id="search">Search</button>
+        <div class="recipie-data">
+            <img id="recipe_image" src="" alt="" style="display:none;">
+            <h1 id="name_recipie"></h1>
+            <input type="text" id="name_recipie_edit" value="">
+            <h2 id="category_recipie"></h2>
+            <input type="text" id="category_recipie_edit" value="">
+            <div class="edit-buttons">
+                <button id="edit">Edit</button>
+                <button id="save" style="display:none;">Save</button>
+                <button id="cancel" style="display:none;">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        fetch("https://www.themealdb.com/api/json/v1/1/search.php?s")
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                localStorage.setItem("recipies", JSON.stringify(data));
+                showrecipe(data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
+        function showrecipe(recipies) {
+            document.getElementById("search").addEventListener("click", function () {
+                var name = document.getElementById("name").value.toLowerCase();
+
+                var foundRecipe = recipies.meals.find(recipe => recipe.strMeal.toLowerCase() === name);
+
+                if (foundRecipe) {
+                    document.getElementById("name_recipie").innerText = foundRecipe.strMeal;
+                    document.getElementById("category_recipie").innerText = foundRecipe.strCategory;
+                    document.getElementById("recipe_image").src = foundRecipe.strMealThumb;
+                    document.getElementById("recipe_image").style.display = 'block';
+
+                    document.getElementById("name_recipie_edit").value = foundRecipe.strMeal;
+                    document.getElementById("category_recipie_edit").value = foundRecipe.strCategory;
+
+                    document.querySelector('.edit-buttons').style.display = 'block';
+
+                } else {
+                    document.getElementById("name_recipie").innerText = "No recipe found";
+                    document.getElementById("category_recipie").innerText = "";
+                    document.getElementById("recipe_image").style.display = 'none';
+
+                    document.querySelector('.edit-buttons').style.display = 'none';
+                }
+            });
+
+            document.getElementById("edit").addEventListener("click", function () {
+                document.getElementById("name_recipie").style.display = 'none';
+                document.getElementById("category_recipie").style.display = 'none';
+                document.getElementById("name_recipie_edit").style.display = 'inline-block';
+                document.getElementById("category_recipie_edit").style.display = 'inline-block';
+                document.getElementById("edit").style.display = 'none';
+                document.getElementById("save").style.display = 'inline-block';
+                document.getElementById("cancel").style.display = 'inline-block';
+            });
+
+            document.getElementById("save").addEventListener("click", function () {
+                document.getElementById("name_recipie").innerText = document.getElementById("name_recipie_edit").value;
+                document.getElementById("category_recipie").innerText = document.getElementById("category_recipie_edit").value;
+                document.getElementById("name_recipie").style.display = 'block';
+                document.getElementById("category_recipie").style.display = 'block';
+                document.getElementById("name_recipie_edit").style.display = 'none';
+                document.getElementById("category_recipie_edit").style.display = 'none';
+                document.getElementById("edit").style.display = 'inline-block';
+                document.getElementById("save").style.display = 'none';
+                document.getElementById("cancel").style.display = 'none';
+            });
+
+            document.getElementById("cancel").addEventListener("click", function () {
+                document.getElementById("name_recipie_edit").value = document.getElementById("name_recipie").innerText;
+                document.getElementById("category_recipie_edit").value = document.getElementById("category_recipie").innerText;
+                document.getElementById("name_recipie").style.display = 'block';
+                document.getElementById("category_recipie").style.display = 'block';
+                document.getElementById("name_recipie_edit").style.display = 'none';
+                document.getElementById("category_recipie_edit").style.display = 'none';
+                document.getElementById("edit").style.display = 'inline-block';
+                document.getElementById("save").style.display = 'none';
+                document.getElementById("cancel").style.display = 'none';
+            });
+        }
+    </script>
+</body>
+
+</html>
