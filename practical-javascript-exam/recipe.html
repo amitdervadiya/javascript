@@ -1,204 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Finder</title>
+    <title>Recipe Book</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
+        * {
             padding: 0;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 600px;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            text-align: center;
-        }
-
-        input {
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            width: calc(100% - 24px);
+            margin: 0;
             box-sizing: border-box;
         }
-
-        button {
-            padding: 12px 20px;
-            border: none;
-            border-radius: 8px;
-            background-color: #ff6f61;
-            color: #fff;
-            cursor: pointer;
-            margin: 10px 5px;
-            transition: background-color 0.3s;
+        body {
+            background-color: #f4f4f4; /* New background color */
         }
-
-        button:hover {
-            background-color: #e55b4f;
-        }
-
-        .recipie-data {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .recipie-data img {
-            height: 250px;
-            width: 250px;
-            object-fit: cover;
-            border-radius: 12px;
+        .heading {
+            font-size: 50px;
+            font-weight: 600;
+            color: rgb(93, 107, 69);
             margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-
-        .recipie-data h1,
-        .recipie-data h2 {
-            margin: 10px 0;
-            color: #333;
-        }
-
-        .recipie-data input {
-            display: none;
-            padding: 10px;
-            margin-top: 10px;
-            border: 1px solid #ddd;
+        .container {
+            box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+            background-color: white;
             border-radius: 8px;
+            padding: 20px;
         }
-
-        .edit-buttons {
-            display: none;
+        .rec {
+            height: 95vh;
+            padding: 30px;
+            overflow-y: auto;
+        }
+        .rec1 {
+            height: 95vh;
+        }
+        h1 {
+            font-size: 60px; /* Adjusted size */
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 800;
+            color: rgb(93, 107, 69);
+        }
+        h2 {
+            font-size: 30px;
+            font-family: 'Times New Roman', Times, serif;
+            letter-spacing: 2px;
+            color: rgb(93, 107, 69);
+        }
+        .btn {
+            border: 1px solid;
+            font-weight: 600;
+            color: white;
+            background-color: #FF8A03;
             margin-top: 10px;
         }
-
-        .edit-buttons button {
-            background-color: #28a745;
+        li {
+            line-height: 40px;
         }
-
-        .edit-buttons button#cancel {
-            background-color: #dc3545;
+        .scroll {
+            overflow-y: auto;
+            width: 100%;
+            height: 230px;
         }
-
-        .edit-buttons button#cancel:hover {
-            background-color: #c82333;
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 15px;
         }
-
-        .edit-buttons button#save {
+        .row {
+            position: relative;
+        }
+        #remove {
+            padding: 5px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 24px;
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            cursor: pointer;
+        }
+        .form-select {
+            margin: 20px 0;
+        }
+        .edit-btn {
+            /* margin-top: 30px; */
+             /* margin-left: 20px; */
             background-color: #007bff;
-        }
-
-        .edit-buttons button#save:hover {
-            background-color: #0069d9;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <input type="text" id="name" placeholder="Enter recipe name">
-        <button id="search">Search</button>
-        <div class="recipie-data">
-            <img id="recipe_image" src="" alt="" style="display:none;">
-            <h1 id="name_recipie"></h1>
-            <input type="text" id="name_recipie_edit" value="">
-            <h2 id="category_recipie"></h2>
-            <input type="text" id="category_recipie_edit" value="">
-            <div class="edit-buttons">
-                <button id="edit">Edit</button>
-                <button id="save" style="display:none;">Save</button>
-                <button id="cancel" style="display:none;">Cancel</button>
+    <div class="container text-center">
+        <div class="heading">Recipe Book</div>
+        <select id="food" class="form-select">
+            <option value="Choose">Choose</option>
+            <option value="Sushi">Sushi</option>
+            <option value="Burek">Burek</option>
+            <option value="Corba">Corba</option>
+            <option value="Kumpir">Kumpir</option>
+            <option value="Bistek">Bistek</option>
+            <option value="Tamiya">Tamiya</option>
+            <option value="Big Mac">Big Mac</option>
+        </select>
+    </div>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12 col-md-6 rec1">
+                <img src="" alt="Dish Image" id="dishImage">
+            </div>
+            <div class="col-12 col-md-6 rec">
+                <button id="remove">&times;</button>
+                <h1 id="dishName">Dish Name</h1>
+                <div id="dishCategory" class="h2">Category</div>
+                <button id="dishArea" class="btn">Dish Area</button>
+                <br>
+                <br>
+                <button id="editCategory" class="edit-btn">Edit Category</button>
+                <hr>
+                <h2>Ingredients</h2>
+                <ul id="ingredientsList">
+                    <li class="list1">Ingredient 1</li>
+                    <li class="list2">Ingredient 2</li>
+                    <li class="list3">Ingredient 3</li>
+                    <li class="list4">Ingredient 4</li>
+                    <li class="list5">Ingredient 5</li>
+                </ul>
+                <div class="scroll">
+                    <p id="dishInstructions">Instructions go here.</p>
+                </div>
             </div>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
-        fetch("https://www.themealdb.com/api/json/v1/1/search.php?s")
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
-                localStorage.setItem("recipies", JSON.stringify(data));
-                showrecipe(data);
-            })
-            .catch((err) => {
-                console.log(err);
+        document.getElementById("food").addEventListener("change", function () {
+            let selectedFood = this.value;
+            if (selectedFood !== "Choose") {
+                fetchMealData(selectedFood);
+            }
+        });
+
+        function fetchMealData(meal) {
+            let url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`;
+            fetch(url)
+                .then((res) => res.json())
+                .then((json) => {
+                    console.log(json);
+                    displaydata(json);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        }
+
+        function displaydata(data) {
+            let name = document.getElementById("dishName");
+            let category = document.getElementById("dishCategory");
+            let btn = document.getElementById("dishArea");
+            let idt1 = document.querySelector(".list1");
+            let idt2 = document.querySelector(".list2");
+            let idt3 = document.querySelector(".list3");
+            let idt4 = document.querySelector(".list4");
+            let idt5 = document.querySelector(".list5");
+            let steps = document.getElementById("dishInstructions");
+            let img = document.getElementById("dishImage");
+
+            if (data.meals && data.meals.length > 0) {
+                let meal = data.meals[0];
+                name.innerHTML = meal.strMeal;
+                category.innerHTML = meal.strCategory;
+                btn.innerHTML = meal.strArea;
+                idt1.innerHTML = meal.strIngredient1;
+                idt2.innerHTML = meal.strIngredient2;
+                idt3.innerHTML = meal.strIngredient3;
+                idt4.innerHTML = meal.strIngredient4;
+                idt5.innerHTML = meal.strIngredient5;
+                steps.innerHTML = meal.strInstructions;
+                img.src = meal.strMealThumb;
+            } else {
+                name.innerHTML = "No meal found";
+            }
+
+            document.getElementById("remove").addEventListener("click", () => {
+                localStorage.removeItem("meal");
+                window.location.reload();
             });
 
-        function showrecipe(recipies) {
-            document.getElementById("search").addEventListener("click", function () {
-                var name = document.getElementById("name").value.toLowerCase();
-
-                var foundRecipe = recipies.meals.find(recipe => recipe.strMeal.toLowerCase() === name);
-
-                if (foundRecipe) {
-                    document.getElementById("name_recipie").innerText = foundRecipe.strMeal;
-                    document.getElementById("category_recipie").innerText = foundRecipe.strCategory;
-                    document.getElementById("recipe_image").src = foundRecipe.strMealThumb;
-                    document.getElementById("recipe_image").style.display = 'block';
-
-                    document.getElementById("name_recipie_edit").value = foundRecipe.strMeal;
-                    document.getElementById("category_recipie_edit").value = foundRecipe.strCategory;
-
-                    document.querySelector('.edit-buttons').style.display = 'block';
-
-                } else {
-                    document.getElementById("name_recipie").innerText = "No recipe found";
-                    document.getElementById("category_recipie").innerText = "";
-                    document.getElementById("recipe_image").style.display = 'none';
-
-                    document.querySelector('.edit-buttons').style.display = 'none';
+            document.getElementById("editCategory").addEventListener("click", () => {
+                let newCategory = prompt("Enter new category:");
+                if (newCategory) {
+                    document.getElementById("dishCategory").innerHTML = newCategory;
                 }
             });
 
-            document.getElementById("edit").addEventListener("click", function () {
-                document.getElementById("name_recipie").style.display = 'none';
-                document.getElementById("category_recipie").style.display = 'none';
-                document.getElementById("name_recipie_edit").style.display = 'inline-block';
-                document.getElementById("category_recipie_edit").style.display = 'inline-block';
-                document.getElementById("edit").style.display = 'none';
-                document.getElementById("save").style.display = 'inline-block';
-                document.getElementById("cancel").style.display = 'inline-block';
-            });
-
-            document.getElementById("save").addEventListener("click", function () {
-                document.getElementById("name_recipie").innerText = document.getElementById("name_recipie_edit").value;
-                document.getElementById("category_recipie").innerText = document.getElementById("category_recipie_edit").value;
-                document.getElementById("name_recipie").style.display = 'block';
-                document.getElementById("category_recipie").style.display = 'block';
-                document.getElementById("name_recipie_edit").style.display = 'none';
-                document.getElementById("category_recipie_edit").style.display = 'none';
-                document.getElementById("edit").style.display = 'inline-block';
-                document.getElementById("save").style.display = 'none';
-                document.getElementById("cancel").style.display = 'none';
-            });
-
-            document.getElementById("cancel").addEventListener("click", function () {
-                document.getElementById("name_recipie_edit").value = document.getElementById("name_recipie").innerText;
-                document.getElementById("category_recipie_edit").value = document.getElementById("category_recipie").innerText;
-                document.getElementById("name_recipie").style.display = 'block';
-                document.getElementById("category_recipie").style.display = 'block';
-                document.getElementById("name_recipie_edit").style.display = 'none';
-                document.getElementById("category_recipie_edit").style.display = 'none';
-                document.getElementById("edit").style.display = 'inline-block';
-                document.getElementById("save").style.display = 'none';
-                document.getElementById("cancel").style.display = 'none';
+            btn.addEventListener("click", () => {
+                btn.innerHTML = prompt("Enter value:");
             });
         }
     </script>
 </body>
-
 </html>
