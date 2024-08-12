@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f7;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        td:first-child {
+            font-weight: bold;
+            text-align: right;
+            width: 30%;
+        }
+
+        td:last-child {
+            text-align: left;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>JavaScript Array Methods</h1>
+        <table>
+            <tr>
+                <td id="value1">before</td>
+                <td id="value2">after</td>
+            </tr>
+        </table>
+        <div>
+            <button onclick="pushmethod()">Push</button>
+            <button onclick="popmethod()">Pop</button>
+            <button onclick="slicemethod()">Slice</button>
+            <button onclick="splicemethod()">Splice</button>
+            <button onclick="shiftmethod()">Shift</button>
+            <button onclick="unshiftmethod()">Unshift</button>
+            <button onclick="mapmethod()">Map</button>
+            <button onclick="filtermethod()">Filter</button>
+            <button onclick="reducemethod()">Reduce</button>
+            <button onclick="sortmethod()">Sort</button>
+            <button onclick="reversemethod()">Reverse</button>
+        </div>
+    </div>
+    <script>
+        function pushmethod() {
+            let arr1 = [1, 2, 3, 4, 5, 6, 7];
+            document.getElementById("value1").innerHTML = "before: " + arr1;
+            let arr2 = [...arr1];
+            arr2.push(8);
+            document.getElementById("value2").innerHTML = "after: " + arr2;
+        }
+
+        function popmethod() {
+            let arr1 = [1, 2, 3, 4, 5, 6];
+            document.getElementById("value1").innerHTML = "before: " + arr1;
+            let arr2 = [...arr1];
+            arr2.pop();
+            document.getElementById("value2").innerHTML = "after: " + arr2;
+        }
+
+        function slicemethod() {
+            let arr1 = [1, 2, 3, 4, 5, 6];
+            document.getElementById("value1").innerHTML = "before: " + arr1;
+            let arr2 = arr1.slice(2);
+            document.getElementById("value2").innerHTML = "after: " + arr2;
+        }
+
+        function splicemethod() {
+            let arr1 = [1, 2, 3, 4, 5, 6];
+            document.getElementById("value1").innerHTML = "before: " + arr1;
+            let arr2 = [...arr1];
+            arr2.splice(3, 1, 14);
+            document.getElementById("value2").innerHTML = "after: " + arr2;
+        }
+
+        function shiftmethod() {
+            let arr1 = [1, 2, 3, 4, 5, 6];
+            document.getElementById("value1").innerHTML = "before: " + arr1;
+            let arr2 = [...arr1];
+            arr2.shift();
+            document.getElementById("value2").innerHTML = "after: " + arr2;
+        }
+
+        function unshiftmethod() {
+            let arr1 = [1, 2, 3, 4, 5, 6];
+            document.getElementById("value1").innerHTML = "before: " + arr1;
+            let arr2 = [...arr1];
+            arr2.unshift(0);
+            document.getElementById("value2").innerHTML = "after: " + arr2;
+        }
+
+        function mapmethod() {
+            let arr1 = [1, 2, 3, 4, 5, 6];
+            document.getElementById("value1").innerHTML = "before: " + arr1;
+            let arr2 = arr1.map(el => el * 2);
+            document.getElementById("value2").innerHTML = "after: " + arr2;
+        }
+
+        function filtermethod() {
+            let arr1 = [1, 2, 3, 4, 5, 6];
+            document.getElementById("value1").innerHTML = "before: " + arr1;
+            let arr2 = arr1.filter(el => el % 2 === 0);
+            document.getElementById("value2").innerHTML = "after: " + arr2;
+        }
+
+        function reducemethod() {
+            let arr1 = [1, 2, 3, 4, 5, 6];
+            document.getElementById("value1").innerHTML = "before: " + arr1;
+            let sum = arr1.reduce((accumulator, item) => {
+                return accumulator + item;
+            }, 0);
+            document.getElementById("value2").innerHTML = "after: " + sum;
+        }
+
+        function sortmethod() {
+            let arr1 = [4, 3, 5, 2, 6, 1];
+            document.getElementById("value1").innerHTML = "before: " + arr1;
+            let arr2 = [...arr1];
+            arr2.sort();
+            document.getElementById("value2").innerHTML = "after: " + arr2;
+        }
+
+        function reversemethod() {
+            let arr1 = [1, 2, 3, 4, 5, 6];
+            document.getElementById("value1").innerHTML = "before: " + arr1;
+            let arr2 = [...arr1];
+            arr2.reverse();
+            document.getElementById("value2").innerHTML = "after: " + arr2;
+        }
+    </script>
+</body>
+
+</html>
